@@ -1,0 +1,70 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- fondo -->
+    <path
+        android:fillColor="#FF5A1F"
+        android:pathData="M0,0h108v108h-108z" />
+
+    <group
+        android:pivotX="54"
+        android:pivotY="54"
+        android:scaleX="0.85"
+        android:scaleY="0.85">
+
+        <!-- sudadera -->
+        <path
+            android:fillColor="#141414"
+            android:pathData="M20,130C20,92 36,82 54,82C72,82 88,92 88,130Z" />
+
+        <!-- cabeza -->
+        <path
+            android:fillColor="#F2C9A0"
+            android:pathData="M32,58a22,25 0,1 0,44 0a22,25 0,1 0,-44 0Z" />
+
+        <!-- gorra: copa -->
+        <path
+            android:fillColor="#F4F1EA"
+            android:pathData="M31,52C31,34 41,26 54,26C67,26 77,34 77,52Z" />
+
+        <!-- gorra: visera -->
+        <path
+            android:fillColor="#D9D2C3"
+            android:pathData="M29,52L79,52C79,60 67,63 54,63C41,63 29,60 29,52Z" />
+
+        <!-- lentes -->
+        <path
+            android:fillColor="#141414"
+            android:pathData="M37.5,68a7.5,7.5 0,1 0,15 0a7.5,7.5 0,1 0,-15 0Z" />
+        <path
+            android:fillColor="#141414"
+            android:pathData="M55.5,68a7.5,7.5 0,1 0,15 0a7.5,7.5 0,1 0,-15 0Z" />
+        <path
+            android:fillColor="#141414"
+            android:pathData="M52,67h4v2h-4z" />
+
+        <!-- sonrisa -->
+        <path
+            android:pathData="M48,79Q54,83 60,79"
+            android:strokeColor="#141414"
+            android:strokeWidth="2"
+            android:strokeLineCap="round" />
+
+        <!-- audífonos: diadema -->
+        <path
+            android:pathData="M28,60C26,6 82,6 80,60"
+            android:strokeColor="#141414"
+            android:strokeWidth="4"
+            android:strokeLineCap="round" />
+        <!-- audífonos: almohadillas -->
+        <path
+            android:fillColor="#141414"
+            android:pathData="M23,56a4,4 0,0 1,4 -4h2a4,4 0,0 1,4 4v12a4,4 0,0 1,-4 4h-2a4,4 0,0 1,-4 -4Z" />
+        <path
+            android:fillColor="#141414"
+            android:pathData="M75,56a4,4 0,0 1,4 -4h2a4,4 0,0 1,4 4v12a4,4 0,0 1,-4 4h-2a4,4 0,0 1,-4 -4Z" />
+    </group>
+</vector>

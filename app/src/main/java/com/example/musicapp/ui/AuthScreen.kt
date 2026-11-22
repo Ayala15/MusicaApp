@@ -23,9 +23,11 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DarkMode
 import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.LightMode
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Checkbox
@@ -33,6 +35,7 @@ import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextField
@@ -69,6 +72,7 @@ fun AuthScreen() {
     var rememberMe by rememberSaveable { mutableStateOf(true) }
     var error by remember { mutableStateOf<String?>(null) }
     var isLoading by remember { mutableStateOf(false) }
+    var showInfoDialog by remember { mutableStateOf(false) }
     val dark = LocalDark.current
 
     // Mostrar tarjeta de cuenta guardada si hay datos guardados
@@ -346,6 +350,109 @@ fun AuthScreen() {
             fontSize = 12.sp,
             textAlign = TextAlign.Center
         )
+
+        Spacer(Modifier.height(16.dp))
+
+        // Botón de información del grupo desarrollador y proyecto
+        OutlinedButton(
+            onClick = { showInfoDialog = true },
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(44.dp),
+            shape = RoundedCornerShape(50),
+            colors = ButtonDefaults.outlinedButtonColors(
+                contentColor = Palette.Ink
+            )
+        ) {
+            Icon(
+                Icons.Default.Info,
+                contentDescription = null,
+                tint = Palette.Ink,
+                modifier = Modifier.size(18.dp)
+            )
+            Spacer(Modifier.width(8.dp))
+            Text("Información del Grupo Desarrollador", fontSize = 13.sp, fontWeight = FontWeight.Medium)
+        }
+
         Spacer(Modifier.height(32.dp))
+    }
+
+    if (showInfoDialog) {
+        AlertDialog(
+            onDismissRequest = { showInfoDialog = false },
+            confirmButton = {
+                TextButton(onClick = { showInfoDialog = false }) {
+                    Text("Cerrar", color = Palette.Accent, fontWeight = FontWeight.Bold)
+                }
+            },
+            containerColor = Palette.Card,
+            titleContentColor = Palette.Ink,
+            textContentColor = Palette.Ink,
+            title = {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Icon(
+                        Icons.Default.Info,
+                        contentDescription = null,
+                        tint = Palette.Accent,
+                        modifier = Modifier.size(24.dp)
+                    )
+                    Spacer(Modifier.width(8.dp))
+                    Text("Acerca del Proyecto", fontWeight = FontWeight.Bold, fontSize = 20.sp)
+                }
+            },
+            text = {
+                Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
+                    Text(
+                        "Tema de la App:",
+                        fontWeight = FontWeight.Bold,
+                        color = Palette.Ink,
+                        fontSize = 14.sp
+                    )
+                    Text(
+                        "Reproducción y catálogo de música en streaming con Jetpack Compose y ExoPlayer.",
+                        color = Palette.Muted,
+                        fontSize = 13.sp
+                    )
+
+                    Spacer(Modifier.height(12.dp))
+                    Text(
+                        "Tecnologías usadas:",
+                        fontWeight = FontWeight.Bold,
+                        color = Palette.Ink,
+                        fontSize = 14.sp
+                    )
+                    Text(
+                        "• Kotlin + Jetpack Compose (UI)\n• Media3 ExoPlayer (Streaming Audio)\n• Coroutines & StateFlow (Asincronía)\n• Retrofit & Gson (Consumo API Deezer)\n• SharedPreferences (Persistencia)",
+                        color = Palette.Muted,
+                        fontSize = 13.sp
+                    )
+
+                    Spacer(Modifier.height(16.dp))
+                    Text(
+                        "Grupo desarrollador:",
+                        fontWeight = FontWeight.Bold,
+                        color = Palette.Ink,
+                        fontSize = 14.sp
+                    )
+                    Spacer(Modifier.height(4.dp))
+                    val integrantes = listOf(
+                        "Gerardo David Ayala Serpas",
+                        "Anderson Alberto Baños Escobar",
+                        "Jason Ernesto Benítez López",
+                        "Ángel Esturdo Campos Natividad",
+                        "Raúl Josué Campos Rodríguez"
+                    )
+                    integrantes.forEach { integrante ->
+                        Text(
+                            "• $integrante",
+                            color = Palette.Ink,
+                            fontSize = 13.sp,
+                            fontWeight = FontWeight.Medium,
+                            modifier = Modifier.padding(vertical = 2.dp)
+                        )
+                    }
+                }
+            }
+        )
     }
 }

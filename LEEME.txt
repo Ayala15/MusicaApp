@@ -1,12 +1,7 @@
 MusicaApp - app de música minimalista (Kotlin + Jetpack Compose)
 
-1. Descomprime el ZIP.
-2. Android Studio > File > Open > selecciona la carpeta MusicaApp.
-3. Espera el Gradle Sync (necesita internet la primera vez).
-4. Run (emulador o celular con internet).
-
 - Catálogo, portadas y audio: API de Deezer (https://api.deezer.com), sin API key. Solo vistas previas de 30 s.
-- Recomendaciones ("Para ti"): API de ReccoBeats (https://api.reccobeats.com/v1/track/recommendation), sin API key.
+- Recomendaciones: API de ReccoBeats (https://api.reccobeats.com/v1/track/recommendation), sin API key.
 - Modo claro/oscuro: botón de sol/luna arriba; se recuerda la elección.
 - Cuentas y canciones guardadas: solo en el dispositivo (SharedPreferences).
   La contraseña se guarda como hash PBKDF2 con sal, no en texto plano.
